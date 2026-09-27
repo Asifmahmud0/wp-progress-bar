@@ -26,3 +26,16 @@ if ( ! defined( 'WPPB_PLUGIN_DIR' ) ) {
 if ( ! defined( 'WPPB_PLUGIN_URL' ) ) {
 	define( 'WPPB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
+
+
+// Require the main plugin class.
+require_once WPPB_PLUGIN_DIR . 'includes/class-wppb-plugin.php';
+
+/**
+ * Initialize the plugin.
+ */
+function run_wp_progress_bar() {
+	WPPB_Plugin::get_instance();
+}
+// Hook into plugins_loaded to ensure WordPress is fully ready.
+add_action( 'plugins_loaded', 'run_wp_progress_bar' );
