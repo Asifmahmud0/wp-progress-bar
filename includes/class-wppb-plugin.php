@@ -36,7 +36,8 @@ class WPPB_Plugin {
 	 * Load required files.
 	 */
 	private function load_dependencies() {
-		// We will require our Admin and Frontend files here later!
+		// Load the centralized Settings class
+		require_once WPPB_PLUGIN_DIR . 'includes/class-wppb-settings.php';
 	}
 
 	/**
@@ -54,3 +55,4 @@ class WPPB_Plugin {
 		}
 	}
 }
+
